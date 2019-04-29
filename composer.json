@@ -1,0 +1,28 @@
+{
+	"name": "b13/gonzo",
+	"type": "typo3-cms-extension",
+	"description": "Gonzo: Take control of your URLs in TYPO3 v9.",
+	"homepage": "https://b13.com",
+	"license": ["GPL-2.0-or-later"],
+	"authors": [{
+		"name": "b13 GmbH",
+		"email": "typo3@b13.com",
+		"role": "Maintainer"
+	}],
+	"require": {
+		"typo3/cms-core": "^9.5"
+	},
+	"replace": {
+		"gonzo": "self.version"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "gonzo"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"B13\\Gonzo\\": "Classes/"
+		}
+	}
+}
