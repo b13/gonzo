@@ -1,4 +1,7 @@
 <h1>Manage URLs and Redirects</h1>
+<script>
+
+</script>
 <f:if condition="{chooseSite}">
 	<f:then>
 		<div class="callout callout-warning">
@@ -12,29 +15,10 @@
 		<h4>Rename single pages</h4>
 		<div id="gonzo">
 			<div class="table-responsive">
-				<table class="table table-bordered table-hover table-striped table-condensed">
-					<thead>
-					<tr>
-						<th>Page Title</th>
-						<th style="min-width: 500px;">URL Path</th>
-					</tr>
-					</thead>
-					<tbody>
-					<f:format.raw>
-						<tr v-for="page in flatPages(pages)">
-							<td>
-								<span v-html="page.indent"></span>{{ page.nav_title ? page.nav_title : page.title }}</td>
-							<td><input class="form-control input-sm" :value="page.slug" /></td>
-						</tr>
-					</f:format.raw>
-					</tbody>
-				</table>
+				<slug-list :pages='pages'>
+				</slug-list>
 			</div>
 		</div>
-		<script>
-			var gonzo = {};
-			gonzo.pages = {json -> f:format.raw()};
-		</script>
 		<f:be.pageRenderer includeRequireJsModules="{0: 'TYPO3/CMS/Gonzo/Gonzo'}" />
 	</f:else>
 </f:if>

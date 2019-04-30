@@ -85,7 +85,7 @@ class UrlManagementController
                 }
             });
             $this->view->assign('tree', $tree);
-            $this->view->assign('json', json_encode($tree, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES));
+            $this->moduleTemplate->getPageRenderer()->addJsInlineCode('gonzo', 'var gonzo=' . json_encode($tree, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES) . ';');
             $this->initializeMenuFromSite($site, $backendUser);
         } catch (SiteNotFoundException $e) {
             $this->view->assign('chooseSite', true);
